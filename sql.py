@@ -38,4 +38,4 @@ if __name__ == "__main__":
     # create_table(TABLES['information'])
     sql = "DELETE FROM information"
     cursor.execute(sql)
-    # mydb.commit()
+    mydb.commit()
