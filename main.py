@@ -70,12 +70,13 @@ class Databbase:
 if __name__ == "__main__":
     while True:
         event = Event()
+        db = Databbase()
         html = event.scrape(URL)
         tour = event.extract(html)
         if tour != "No upcoming tours":
-            content = read_tour(tours=tour)
+            content = db.read_tour(tours=tour)
             if not content:
-                store_tour(tour=tour)
+                db.store_tour(tour=tour)
                 email = Email()
                 email.send("From Tour with love", tour)
         time.sleep(2)
